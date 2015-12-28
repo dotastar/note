@@ -172,6 +172,7 @@ root@debian:/mnt/test#
 	$0 name of the shell or shell script
 
   7) learnt generic/018 test defrag 
+  8) In bash $$ is the process ID
   
 28. sparse check. tool that Linus wrote. static analysis code. 
 	$ make M=fs/ext4 C=2 CF=-D__CHECK_ENDIAN__
@@ -183,3 +184,34 @@ root@debian:/mnt/test#
 	 * mapping->a_ops->readpage() function for the actual low-level stuff. ->
     ext4_readpages()
     
+    
+30. git command to show only ext4 log in one line with author and date:
+ git log --pretty=format:'%h %ad %s | %an' --date=short   -- fs/ext4
+ or
+ git log --pretty=oneline -- fs/ext4
+ 
+31. ext4 git tree
+ http://git.kernel.org/cgit/linux/kernel/git/tytso/ext4.git/log/?h=dev
+ 
+32. 2015 ext4 new feature :enctyption ext4 crypto
+https://lwn.net/Articles/639427/
+initial patch:
+http://thread.gmane.org/gmane.comp.file-systems.ext4/48206
+http://marc.info/?l=linux-ext4&m=142801360603286&w=2
+
+article:
+https://lwn.net/Articles/639427/
+
+comment blog:
+http://blog.quarkslab.com/a-glimpse-of-ext4-filesystem-level-encryption.html
+user space tool e4crypt
+https://git.kernel.org/cgit/fs/ext2/e2fsprogs.git/tree/misc/e4crypt.c?h=next&id=74f2c4aa18f231830c29cdbd278674628956d20d
+
+xfstests-ext4
+https://git.kernel.org/cgit/fs/ext2/xfstests-bld.git/tree/README
+
+33. if kvmxfstests hang, use ted tso's rootfs image.
+http://marc.info/?l=linux-ext4&m=144580848415559&w=2
+https://www.kernel.org/pub/linux/kernel/people/tytso/kvm-xfstests/
+
+34. start read code dumpe2fs.c
